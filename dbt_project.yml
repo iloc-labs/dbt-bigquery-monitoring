@@ -21,3 +21,9 @@ models:
   dbt_bigquery_monitoring:
     example:
       +materialized: view
+
+vars:
+  bigquery_database: "region-us"
+  bigquery_source_schema: "INFORMATION_SCHEMA"
+  bigquery_target_tz: "UTC"
+  bigquery_source_tz: "UTC"
