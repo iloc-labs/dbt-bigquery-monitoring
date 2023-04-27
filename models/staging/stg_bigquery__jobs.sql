@@ -47,12 +47,12 @@ select
     regexp_extract(query, r'"dbt_version": "([^,]*)"') as dbt_version,
     regexp_extract(query, r'"profile_name": "([^,]*)"') as dbt_profile_name,
     regexp_extract(query, r'"target_name": "([^,]*)"') as dbt_target_name,
-    ROUND(timestamp_diff(end_time, start_time, MILLISECOND) / 1000, 2) AS execution_duration_s,
-    ROUND(timestamp_diff(end_time, start_time, MILLISECOND), 2) AS execution_duration_ms,
+    round(timestamp_diff(end_time, start_time, MILLISECOND) / 1000, 2) AS execution_duration_s,
+    round(timestamp_diff(end_time, start_time, MILLISECOND), 2) AS execution_duration_ms,
     row_number() over (partition by job_id order by end_time desc) as _rnk,
-    round(coalesce(total_bytes_billed, 0) / pow(10, 6), 2) as total_megabytes_billed,
-    round(coalesce(total_bytes_billed, 0) / pow(10, 9), 3) as total_gigabytes_billed,
-    round(coalesce(total_bytes_billed, 0) / pow(10, 12), 4) as total_terabytes_billed,
+    round(coalesce(total_bytes_billed, 0) / 1024*1024, 2) as total_megabytes_billed,
+    round(coalesce(total_bytes_billed, 0) / 1024*1024*1024, 3) as total_gigabytes_billed,
+    round(coalesce(total_bytes_billed, 0) / 1024*1024*1024*1024, 4) as total_terabytes_billed,
     round(safe_divide(total_bytes_billed, 102400000000) * 5, 2) as ondemand_cost,
     -- Average slot utilization per job is calculated by dividing
     -- total_slot_ms by the millisecond duration of the job

@@ -6,6 +6,7 @@ sources:
     database: "{{ var('bigquery_database', target.database) }}"
     schema: "{{ var('bigquery_source_schema', 'bigquery') }}"
     tables:
+      - name: JOBS_TIMELINE
       - name: JOBS
         description: The JOBS view contains the real-time metadata about all BigQuery jobs in the current project
         columns:

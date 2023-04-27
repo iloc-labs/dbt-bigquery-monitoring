@@ -16,12 +16,6 @@ clean-targets:
   - "target"
   - "dbt_packages"
 
-
-models:
-  dbt_bigquery_monitoring:
-    example:
-      +materialized: view
-
 vars:
   bigquery_database: "region-us"
   bigquery_source_schema: "INFORMATION_SCHEMA"
