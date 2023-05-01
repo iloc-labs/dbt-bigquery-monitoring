@@ -57,5 +57,5 @@ select
     row_number() over (partition by job_id order by end_time desc) as _rnk,
     -- Average slot utilization per job is calculated by dividing
     -- total_slot_ms by the millisecond duration of the job
-    round(safe_divide(total_slot_ms, timestamp_diff(end_time, start_time, MILLISECOND)), 2) as approximate_slot_count
+    round(safe_divide(total_slot_ms, timestamp_diff(end_time, start_time, MILLISECOND)), 2) as job_avg_slots
 from {{ source('bigquery', 'JOBS') }}
