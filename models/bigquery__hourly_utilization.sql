@@ -4,7 +4,7 @@ select
     reservation_id,
     project_id,
     job_type,
-    user_email,
+    user,
     sum(period_slot_ms) / (1000 * 60 * 60) as average_hourly_slot_usage
 from {{ ref('stg_bigquery__jobs_timeline') }}
 where (statement_type != "SCRIPT" or statement_type is null) 

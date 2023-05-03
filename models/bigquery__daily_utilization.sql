@@ -3,7 +3,7 @@ select
     reservation_id,
     project_id,
     job_type,
-    user_email,
+    user,
     sum(period_slot_ms) / (1000 * 60 * 60 * 24) as average_daily_slot_usage
 from {{ ref('stg_bigquery__jobs_timeline') }}
 -- Avoid duplicate byte counting in parent and children jobs.

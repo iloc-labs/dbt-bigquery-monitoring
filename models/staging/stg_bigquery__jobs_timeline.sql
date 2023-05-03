@@ -8,7 +8,7 @@ select
     period_shuffle_ram_usage_ratio,
     project_id,
     project_number,
-    user_email,
+    user_email as user,
     job_id,
     job_type,
     statement_type,

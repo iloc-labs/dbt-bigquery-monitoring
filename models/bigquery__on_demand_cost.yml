@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: bigquery__on_demand_cost
+    description: On-demand cost estimation.
+    columns:
+      - name: project_id
+        description: ID of the project.
+      - name: user
+        description: Email address or service account of the user who ran the job.
+      - name: job_type
+        description: The type of the job. Can be QUERY, LOAD, EXTRACT, COPY, or null.
+      - name: creation_date
+        description: Creation date of the job.
+      - name: on_demand_cost
+        description: On-demand cost.

@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: bigquery__weekly_utilization
+    description: '{{ doc("weekly_utilization") }}'
+    columns:
+      - name: usage_week
+        description: Timeline period week.
+      - name: reservation_id
+        description: Name of the primary reservation assigned to this job at the end of this period, if applicable.
+      - name: project_id
+        description: ID of the project.
+      - name: job_type
+        description: The type of the job. Can be QUERY, LOAD, EXTRACT, COPY, or null.
+      - name: user
+        description: Email address or service account of the user who ran the job.
+      - name: average_weekly_slot_usage
+        description: Average weekly slot utilization.

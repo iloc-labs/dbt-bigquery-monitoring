@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: bigquery__jobstage_max_slots
+    description: "The average slots and max slots for each job by using estimated_runnable_units. More details can be found [here](https://cloud.google.com/bigquery/docs/information-schema-jobs#estimate_slot_usage_and_cost_for_queries)."
+    columns:
+      - name: project_id
+        description: ID of the project.
+      - name: job_id
+        description: The ID of the job.
+      - name: creation_time
+        description: Creation time of the job.
+      - name: job_type
+        description: The type of the job. Can be QUERY, LOAD, EXTRACT, COPY, or null.
+      - name: user
+        description: Email address or service account of the user who ran the job.
+      - name: job_avg_slots
+        description: Average slot utilization per job is calculated by dividing total_slot_ms by the millisecond duration of the job.
+      - name: query
+        description: SQL query text.
+      - name: jobstage_max_slots
+        description: The max number of slots used at ANY stage in the query.
+      - name: estimated_runnable_units
+        description: Units of work that can be scheduled immediately.

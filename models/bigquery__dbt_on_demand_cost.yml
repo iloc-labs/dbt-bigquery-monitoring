@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: bigquery__dbt_on_demand_cost
+    description: On-demand cost estimation.
+    columns:
+      - name: project_id
+        description: The ID of the bigquery project.
+      - name: dbt_profile_name
+        description: The profile your dbt project uses to connect to data warehouse.
+      - name: dbt_target_name
+        description: Name of the dbt target.
+      - name: dbt_node_id
+        description: The ID of the node that the query relates to.
+      - name: creation_date
+        description: Creation date of the job.
+      - name: on_demand_cost
+        description: On-demand cost.

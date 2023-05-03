@@ -2,13 +2,14 @@ version: 2
 
 sources:
   - name: bigquery
-    description: Bigquery information schema
+    description: Bigquery information schema. 
     database: "{{ var('bigquery_database', target.database) }}"
     schema: "{{ var('bigquery_source_schema', 'bigquery') }}"
     tables:
       - name: JOBS_TIMELINE
+        description: '{{ doc("jobs_timeline") }}'
       - name: JOBS
-        description: The JOBS view contains the real-time metadata about all BigQuery jobs in the current project
+        description: '{{ doc("jobs") }}'
         columns:
           - name: bi_engine_statistics
             description: If the project is configured to use the BI Engine SQL Interface, then this field contains BiEngineStatistics. Otherwise NULL.
@@ -19,12 +20,7 @@ sources:
           - name: destination_table
             description: Destination table for results, if any.
           - name: dml_statistics 
-            description: "If the job is a query with a DML statement, the value is a record with the following fields: 
-            inserted_row_count: The number of rows that were inserted.
-            deleted_row_count: The number of rows that were deleted.
-            updated_row_count: The number of rows that were updated.
-            For all other jobs, the value is NULL.
-            This column is present in the INFORMATION_SCHEMA.JOBS_BY_USER and INFORMATION_SCHEMA.JOBS_BY_PROJECT views."
+            description: '{{ doc("jobs_dml_statistics") }}'
           - name: end_time
             description: End time of this job
           - name: error_result
@@ -52,11 +48,7 @@ sources:
           - name: referenced_tables
             description: Array of tables referenced by the job. Only populated for query jobs
           - name: reservation_id
-            description: "Name of the primary reservation assigned to this job, in the format RESERVATION_ADMIN_PROJECT:RESERVATION_LOCATION.RESERVATION_NAME
-            In this output:
-            RESERVATION_ADMIN_PROJECT: the name of the Google Cloud project that administers the reservation
-            RESERVATION_LOCATION: the location of the reservation
-            RESERVATION_NAME: the name of the reservation"
+            description: '{{ doc("jobs_reservation_id") }}'
           - name: session_info
             description: Details about the session in which this job ran, if any. (Preview)
           - name: start_time

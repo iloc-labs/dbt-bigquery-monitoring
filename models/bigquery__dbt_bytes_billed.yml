@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: bigquery__dbt_bytes_billed
+    description: Bytes billed.
+    columns:
+      - name: project_id
+        description: The ID of the bigquery project.
+      - name: dbt_profile_name
+        description: The profile your dbt project uses to connect to data warehouse.
+      - name: dbt_target_name
+        description: Name of the dbt target.
+      - name: dbt_node_id
+        description: The ID of the node that the query relates to.
+      - name: creation_date
+        description: Creation date of the job.
+      - name: total_bytes_billed
+        description: The total bytes billed for the job. If the project is configured to use on-demand pricing.
+      - name: total_megabytes_billed
+        description: The total megabytes billed for the job.
+      - name: total_gigabytes_billed
+        description: The total gigabytes billed for the job.

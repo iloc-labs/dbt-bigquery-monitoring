@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: bigquery__bytes_billed
+    description: Bytes billed.
+    columns:
+      - name: project_id
+        description: The ID of the bigquery project.
+      - name: user
+        description: Email address or service account of the user who ran the job.
+      - name: query
+        description: SQL query text.
+      - name: job_type
+        description: The type of the job. Can be QUERY, LOAD, EXTRACT, COPY, or NULL.
+      - name: creation_date
+        description: Creation date of this job.
+      - name: total_bytes_billed
+        description: The total bytes billed for the job. If the project is configured to use on-demand pricing.
+      - name: total_megabytes_billed
+        description: The total megabytes billed for the job.
+      - name: total_gigabytes_billed
+        description: The total gigabytes billed for the job.
