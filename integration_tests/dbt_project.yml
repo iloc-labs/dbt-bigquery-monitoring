@@ -1,0 +1,30 @@
+name: 'dbt_bigquery_monitoring_tests'
+version: '1.0.0'
+config-version: 2
+
+profile: dbt_bigquery_monitoring
+
+models:
+  dbt_bigquery_monitoring:
+    enabled: true
+
+dispatch:
+  - macro_namespace: dbt
+    search_order:
+      - dbt_bigquery_monitoring_tests
+      - dbt_bigquery_monitoring
+      - dbt
+
+model-paths: ["models"]
+
+target-path: "target"
+clean-targets:
+  - target
+  - dbt_packages
+
+vars:
+  bigquery_database: "iloc-dbt-package-testing"
+  bigquery_source_schema: "region-us.INFORMATION_SCHEMA"
+  bigquery_target_tz: "UTC"
+  bigquery_source_tz: "UTC"
+  bigquery_on_demand_compute_pricing_per_tb: 5
