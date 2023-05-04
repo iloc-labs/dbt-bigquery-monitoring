@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: bigquery
     description: Bigquery information schema. 
-    database: "{{ var('bigquery_database', target.database) }}"
+    database: "{{ var('bigquery_source_database', target.database) }}"
     schema: "{{ var('bigquery_source_schema', 'bigquery') }}"
     tables:
       - name: JOBS_TIMELINE
