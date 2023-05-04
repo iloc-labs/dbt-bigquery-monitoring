@@ -13,7 +13,7 @@ permissions:
   id-token: write
 
 env:
-  DBT_PROFILES_DIR: /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/integration_test
+  DBT_PROFILES_DIR: ./integration_test
   # BigQuery Connection
   BIGQUERY_PROJECT: ${{ secrets.BIGQUERY_PROJECT }}
   BIGQUERY_LOCATION: ${{ secrets.BIGQUERY_LOCATION }}
