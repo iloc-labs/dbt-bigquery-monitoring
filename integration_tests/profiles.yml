@@ -3,6 +3,7 @@ config:
     use_colors: True
 
 dbt_bigquery_monitoring:
+  target: bigquery
   outputs:
     bigquery:
       type: bigquery
