@@ -4,7 +4,7 @@ sources:
   - name: bigquery
     description: Bigquery information schema. 
     database: "{{ var('bigquery_source_database', target.database) }}"
-    schema: "{{ var('bigquery_source_schema', 'bigquery') }}"
+    schema: "region-{{ var('bigquery_source_location', target.location) }}.INFORMATION_SCHEMA"
     tables:
       - name: JOBS_TIMELINE
         description: '{{ doc("jobs_timeline") }}'

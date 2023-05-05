@@ -54,7 +54,7 @@ jobs:
         run: dbt debug
 
       - name: Generate dbt docs
-        run: "dbt docs generate --vars '{bigquery_source_schema: region-us.INFORMATION_SCHEMA, bigquery_on_demand_compute_pricing_per_tb: 5}'"
+        run: "dbt docs generate --vars '{bigquery_on_demand_compute_pricing_per_tb: 5}'"
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
