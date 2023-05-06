@@ -2,7 +2,7 @@ select
     {{ dbt_date.convert_timezone(
         column='cast(creation_time as ' ~ dbt.type_timestamp() ~ ')',
         target_tz=var('bigquery_target_tz', "UTC"),
-        source_tz=var('bigquery_source_tz', "UTC"))
+        source_tz="UTC")
     }} as creation_time,
     project_id,
     project_number,
@@ -14,12 +14,12 @@ select
     {{ dbt_date.convert_timezone(
         column='cast(start_time as ' ~ dbt.type_timestamp() ~ ')',
         target_tz=var('bigquery_target_tz', "UTC"),
-        source_tz=var('bigquery_source_tz', "UTC"))
+        source_tz="UTC")
     }} as start_time,
     {{ dbt_date.convert_timezone(
         column='cast(end_time as ' ~ dbt.type_timestamp() ~ ')',
         target_tz=var('bigquery_target_tz', "UTC"),
-        source_tz=var('bigquery_source_tz', "UTC"))
+        source_tz="UTC")
     }} as end_time,
     query,
     state,
@@ -45,7 +45,7 @@ select
     extract(date from {{ dbt_date.convert_timezone(
         column='cast(creation_time as ' ~ dbt.type_timestamp() ~ ')',
         target_tz=var('bigquery_target_tz', "UTC"),
-        source_tz=var('bigquery_source_tz', "UTC"))
+        source_tz="UTC")
     }}) as creation_date,
     regexp_extract(query, r'"app": "([^,]*)"') = 'dbt' as is_dbt_query,
     regexp_extract(query, r'"dbt_version": "([^,]*)"') as dbt_version,
